@@ -1,0 +1,4 @@
+---
+# vars file for damianoneill.g
+# g_GOROOT: "$HOME/.go"
+# g_GOPATH: "$HOME/go"

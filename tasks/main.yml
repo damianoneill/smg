@@ -1,0 +1,20 @@
+---
+# tasks file for damianoneill.g
+- name: Download stefanmaric/g installer version {{ g_version }}
+  get_url:
+    url: https://raw.githubusercontent.com/stefanmaric/g/{{ g_version }}/bin/install
+    dest: /tmp/install-{{ g_version }}.sh
+    mode: 0755
+
+- name: Execute the stefanmaric/g install script with variables
+  shell:  "GOROOT={{ g_GOROOT | quote }} GOPATH={{ g_GOPATH | quote }} /tmp/install-{{ g_version }}.sh -y"
+  when: g_GOROOT is defined and g_GOPATH is defined # noqa 305
+
+- name: Execute the stefanmaric/g install script with defaults
+  shell:  "GOROOT={{ ansible_env.HOME }}/.go GOPATH={{ ansible_env.HOME }}/go /tmp/install-{{ g_version }}.sh -y"
+  when: g_GOROOT is undefined and g_GOPATH is undefined # noqa 305
+
+- name: Remove the stefanmaric/g install script
+  file:
+    path: /tmp/install-{{ g_version }}.sh
+    state: absent
