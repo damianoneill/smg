@@ -1,4 +1,4 @@
-# damianoneill.stm
+# damianoneill.smg
 
 This role installs [stefanmaric/g](https://github.com/stefanmaric/g). stefanmaric/g is a go version manager. This role retrieves the installer script and executes this for the ansible user.
 
