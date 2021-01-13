@@ -4,7 +4,7 @@ This role installs [stefanmaric/g](https://github.com/stefanmaric/g). stefanmari
 
 ## Requirements
 
-There are no requirements for this role
+There are no requirements for this role.  It has been tested on Ubuntu and Centos hosts.  Other families may work.
 
 ## Role Variables
 
